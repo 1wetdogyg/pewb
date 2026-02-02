@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+.cuerpo {
+    position: relative; /* Cambiado de absolute a relative para que esté dentro del flujo de la página */
+    width: 75%;       /* Define un ancho fijo */
+    background-color: #1b3039;
+    color: beige;
+    padding: 10px;
+    text-align: center;
+    height: auto;       /* Ajusta la altura para que ocupe toda la altura de la ventana */
+    margin-top: 10px;   /* Espacio en la parte superior */
+}

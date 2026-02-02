@@ -1,0 +1,26 @@
+# Entornos virtuales (MUY IMPORTANTE)
+venv/
+env/
+pweb/
+lib/
+bin/
+include/
+pyvenv.cfg
+site-packages/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Variables de entorno
+.env
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+

@@ -1,0 +1,27 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Estilo del aside (menú vertical) */
+.aside {
+    position: relative; /* Cambiado de absolute a relative para que esté dentro del flujo de la página */
+    width: 25%;       /* Define un ancho fijo */
+    background-color: white;
+    color:black;
+    padding: 20px;
+    text-align: center;
+    height: 100vh;       /* Ajusta la altura para que ocupe toda la altura de la ventana */
+    margin-top: 20px;   /* Espacio en la parte superior */
+    border: none;
+    border-radius: 50px;
+}
+
+/* Estilo de la información en main */
+.informacion {
+    margin-left: 240px; /* Deja espacio para el aside */
+    padding: 20px;
+}

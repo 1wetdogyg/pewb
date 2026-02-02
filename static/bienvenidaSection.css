@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bienvenida {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: opacity 0.5s, transform 0.5s;
+    width: 100%; 
+}
+
+.texto-bienvenida {
+    flex: 1;
+    text-align: left;
+    padding-left: 10%;
+    font-size: 3rem;
+    color: aliceblue;
+}
+
+.imagen-bienvenida {
+    flex: 1;
+    text-align: right;
+    padding-right: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.imagen-bienvenida iframe {
+    width: 100%;  /* Aumenta el ancho a 90% del contenedor */
+    height: 80%; /* Mantiene la altura al 80% del contenedor */
+    max-width: 100%;
+    border: none; /* Para eliminar los bordes del iframe */
+}
+
+/* Ocultar la sección al hacer scroll */
+.bienvenida.hidden {
+    opacity: 0;
+    transform: translateY(-100%);
+}

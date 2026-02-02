@@ -14,3 +14,13 @@ def get_pedido(pedido_id: int):
 @router.post("/pedidos")
 def post_pedido(pedido: Pedido):
     return service.crear_pedido(pedido)
+
+
+@router.get("/info")
+def get_info():
+    return {
+        "api": "FastAPI",
+        "arquitectura": "Hexagonal (Ports and Adapters)",
+        "modulo": "Pedidos",
+        "estado": "Activa"
+    }

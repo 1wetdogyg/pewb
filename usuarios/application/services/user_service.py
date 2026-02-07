@@ -1,0 +1,50 @@
+from typing import List, Optional
+from domain.usuario import User, UserCreate, UserUpdate
+from application.ports.user_repository import UserRepository
+
+
+class UserService:
+
+    def __init__(self, repository: UserRepository):
+        self.repository = repository
+
+    def register_user(self, user_data: UserCreate) -> User:
+        # Validaciones de negocio
+        if not user_data.username or not user_data.email:
+            raise ValueError("Username and email are required")
+
+        # Verificar unicidad del email
+        existing_user = self.repository.find_by_email(user_data.email)
+        if existing_user:
+            raise ValueError(f"Email {user_data.email} is already registered")
+
+        return self.repository.save(user_data)
+
+    def get_user(self, user_id: str) -> Optional[User]:
+        return self.repository.find_by_id(user_id)
+
+    def get_all_users(self) -> List[User]:
+        return self.repository.find_all()
+
+    def update_user(self, user_id: str, user_update: UserUpdate) -> Optional[User]:
+        user = self.repository.find_by_id(user_id)
+        if not user:
+            return None
+
+        if user_update.email and user_update.email != user.email:
+            existing_user = self.repository.find_by_email(user_update.email)
+            if existing_user:
+                raise ValueError(f"Email {user_update.email} is already in use")
+
+        return self.repository.update(user_id, user_update)
+
+    def delete_user(self, user_id: str) -> bool:
+        return self.repository.delete(user_id)
+
+    def activate_user(self, user_id: str) -> Optional[User]:
+        user = self.repository.find_by_id(user_id)
+        if not user:
+            return None
+
+        user.activate()
+        return self.repository.update(user_id, user)
